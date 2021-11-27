@@ -1,5 +1,5 @@
-### СТЕК технологий MERN:
-<li>MySQL</li>
+### СТЕК технологий PERN:
+<li>PostgreSQL</li>
 <li>Express</li>
 <li>React</li>
 <li>NodeJs</li>
