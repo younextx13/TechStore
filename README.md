@@ -16,7 +16,7 @@
 <li>NodeJs</li>
 <li>Express</li>
 <li>Sequelize</li>
-<li>MySQL</li>
+<li>PostgreSQL</li>
 <li>JWT</li>
 </ul>
 
