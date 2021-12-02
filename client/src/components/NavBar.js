@@ -8,7 +8,7 @@ import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
 import {useHistory} from 'react-router-dom'
-import jwt_decode from 'jwt-decode'
+import backNavBar from "../assets/backNavBar.jpg";
 
 const NavBar = observer(() => {
     const {user} = useContext(Context)
@@ -20,26 +20,26 @@ const NavBar = observer(() => {
     }
 
     return (
-        <Navbar bg="warning" variant="warning">
+        <Navbar variant="light" style={{backgroundImage: `url(${backNavBar})`}} >
             <Container>
-                <NavLink className="d-flex row align-items-center"  style={{color:'black'}} to={SHOP_ROUTE}>Tech Store</NavLink>
+                <NavLink className="d-flex row align-items-center"  style={{color:'whitesmoke', fontSize:28}} to={SHOP_ROUTE}>TechStore</NavLink>
                 {user.isAuth ?
                     <Nav className="ml-auto" style={{color: 'black'}}>
                         <Button
-                            variant={"outline-dark"}
+                            variant={"outline-light"}
                             className="mr-2"
                             onClick={() => history.push(BASKET_ROUTE)}
                         >
                             Корзина
                         </Button>
                         <Button
-                            variant={"outline-dark"}
+                            variant={"outline-light"}
                             onClick={() => history.push(ADMIN_ROUTE)}
                         >
                             Админ панель
                         </Button>
                         <Button
-                            variant={"outline-dark"}
+                            variant={"outline-light"}
                             onClick={() => logOut()}
                             className="ml-2"
                         >
@@ -49,12 +49,11 @@ const NavBar = observer(() => {
                     </Nav>
                     :
                     <Nav className="ml-auto" style={{color: 'white'}}>
-                        <Button variant={"outline-light"} onClick={() => history.push(LOGIN_ROUTE)}>Авторизация</Button>
+                        <Button variant={"outline-dark"} onClick={() => history.push(LOGIN_ROUTE)}>Авторизация</Button>
                     </Nav>
                 }
             </Container>
         </Navbar>
-
     );
 });
 

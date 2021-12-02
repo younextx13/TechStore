@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useContext } from 'react';
 import { Context } from '..';
-import { deleteFromBasket, getBasket } from '../http/deviceAPI';
+import { deleteDeviceFromBasket, getBasket } from '../http/deviceAPI';
 
-import { Card, Col, Container, Row } from 'react-bootstrap'
+import {Button, Card, Col, Container, Row} from 'react-bootstrap'
 import { observer } from 'mobx-react-lite';
 
 import close from '../assets/close.svg'
@@ -24,7 +24,11 @@ const Basket = observer(() => {
         prices += Number(price.device.price)
     )}
 
-
+    const dropDevice = (id) => {
+        deleteDeviceFromBasket(id).then(data => {
+            window.location.reload()
+        })
+    }
 
     return (
         <Container
@@ -48,8 +52,9 @@ const Basket = observer(() => {
                     <Row className="d-flex w-100">
                         <Col>
                             <div className="d-flex flex-row align-items-center">
-                                <img src={process.env.REACT_APP_API_URL + product.device.img} width={50} />
+                                <img src={process.env.REACT_APP_API_URL + product.device.img} width={100} />
                                 <h1 className="pl-3">{product.device.name}</h1>
+                                <Button variant="dark" className="ml-3" onClick={() => dropDevice(product.id)}>Удалить</Button>
                             </div>
                         </Col>
                         <Col>

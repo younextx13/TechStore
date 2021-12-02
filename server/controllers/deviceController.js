@@ -36,7 +36,7 @@ class DeviceController {
             page = page || 1
 
             // ---------- Здесь есть ошибка с выводом записей по лимиту! Я поставил && чтобы записи выводились хотя бы. ---------- //
-            limit = limit && 9
+            limit = limit && 8
 
             let offset = page * limit - limit
             let devices;
